@@ -25,11 +25,6 @@ const submissions = [
     }
 ];
 
-// for(let submission of submissions){
-//     console.log(`Name: ${submission.name}, Score: ${submission.score}, Date: ${submission.date}, Passed: ${submission.passed}`
-//     );
-// }
-
 function addSubmission(array, newName, newScore, newDate){
     let newStudentSubmission =
         {
@@ -77,26 +72,44 @@ function editSubmission(array, index, score){
 //console.log(submissions);
 
 function findSubmissionByName(array, name){
-    // return array.name === name;
-    // console.log(submissions.find());
-    const index = array.find(submission => submission.name === name);
-    console.log(submissions.find());
+    const aSubmission = array.find(submission => submission.name === name);
+    console.log(aSubmission);
 }
+//findSubmissionByName(submissions, 'Jane');
 
 function findLowestScore(array){
+    let minScore = Infinity;
+    let lowestScoreSubmission;
+    array.forEach(element =>{
+        if(element.score < minScore){
+            minScore = element.score;
+            lowestScoreSubmission = element;
+        }
+    })
+    console.log(lowestScoreSubmission);
 
 }
+//findLowestScore(submissions);
 
 function findAverageScore(array){
-
+    let totalScore = 0;
+    for(let submission of submissions){
+        totalScore += submission.score;
+    }
+    console.log(totalScore/array.length);
 }
+//findAverageScore(submissions);
 
 function filterPassing(array){
-
+    let passedArray = array.filter(submission => submission.score >= 60);
+    console.log(passedArray);
 }
+//filterPassing(submissions);
 
 function filter90AndAbove(array){
-    
+    let passedArray = array.filter(submission => submission.score >= 90);
+    console.log(passedArray);
 }
+//filter90AndAbove(submissions);
 
 
