@@ -44,13 +44,13 @@ function addSubmission(array, newName, newScore, newDate){
     }
     
 }
-//addSubmission(submissions, 'Morgan', 50, '2021-03-25');
+addSubmission(submissions, 'Morgan', 50, '2021-03-25');
 
 function deleteSubmissionByIndex(array, index){
     array.splice(index, 1);
     console.log(submissions);
 }
-//deleteSubmissionByIndex(submissions, 4);
+deleteSubmissionByIndex(submissions, 4);
 
 
 function deleteSubmissionByName(array, name){
@@ -58,7 +58,7 @@ function deleteSubmissionByName(array, name){
     array.splice(index, 1);
     console.log(submissions)
 }
-//deleteSubmissionByName(submissions, 'Joe');
+deleteSubmissionByName(submissions, 'Joe');
 
 function editSubmission(array, index, score){
     array[index].score = score;
@@ -68,14 +68,14 @@ function editSubmission(array, index, score){
         array[index].passed = false;
     }
 }
-//editSubmission(submissions, 1, 75);
-//console.log(submissions);
+editSubmission(submissions, 1, 75);
+console.log(submissions);
 
 function findSubmissionByName(array, name){
     const aSubmission = array.find(submission => submission.name === name);
     console.log(aSubmission);
 }
-//findSubmissionByName(submissions, 'Jane');
+findSubmissionByName(submissions, 'Jane');
 
 function findLowestScore(array){
     let minScore = Infinity;
@@ -89,7 +89,7 @@ function findLowestScore(array){
     console.log(lowestScoreSubmission);
 
 }
-//findLowestScore(submissions);
+findLowestScore(submissions);
 
 function findAverageScore(array){
     let totalScore = 0;
@@ -98,18 +98,18 @@ function findAverageScore(array){
     }
     console.log(totalScore/array.length);
 }
-//findAverageScore(submissions);
+findAverageScore(submissions);
 
 function filterPassing(array){
     let passedArray = array.filter(submission => submission.score >= 60);
     console.log(passedArray);
 }
-//filterPassing(submissions);
+filterPassing(submissions);
 
 function filter90AndAbove(array){
     let passedArray = array.filter(submission => submission.score >= 90);
     console.log(passedArray);
 }
-//filter90AndAbove(submissions);
+filter90AndAbove(submissions);
 
 
