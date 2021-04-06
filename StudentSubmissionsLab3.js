@@ -31,7 +31,7 @@ function addSubmission(array, newName, newScore, newDate){
             name: newName,
             score: newScore,
             date: newDate,
-            passed: true,
+            passed: newScore >= 60 //shorthand way of doing the true/false rather than the if statments
         };
 
     array.push(newStudentSubmission);
@@ -73,12 +73,13 @@ console.log(submissions);
 
 function findSubmissionByName(array, name){
     const aSubmission = array.find(submission => submission.name === name);
-    console.log(aSubmission);
+    return aSubmission //very important that you use return when the question asks you to and not console
+    //it changes what value actually comes out of the function. With console.log no value is actually returned
 }
 findSubmissionByName(submissions, 'Jane');
 
 function findLowestScore(array){
-    let minScore = Infinity;
+    let minScore = array[0].score; //best to use a real value from the array
     let lowestScoreSubmission;
     array.forEach(element =>{
         if(element.score < minScore){
@@ -86,7 +87,7 @@ function findLowestScore(array){
             lowestScoreSubmission = element;
         }
     })
-    console.log(lowestScoreSubmission);
+   return lowestScoreSubmission;
 
 }
 findLowestScore(submissions);
@@ -96,19 +97,19 @@ function findAverageScore(array){
     for(let submission of submissions){
         totalScore += submission.score;
     }
-    console.log(totalScore/array.length);
+    return totalScore/array.length;
 }
 findAverageScore(submissions);
 
 function filterPassing(array){
-    let passedArray = array.filter(submission => submission.score >= 60);
-    console.log(passedArray);
+    let passedArray = array.filter(submission => submission.passed); //this is the same thing
+    return passedArray;
 }
 filterPassing(submissions);
 
 function filter90AndAbove(array){
     let passedArray = array.filter(submission => submission.score >= 90);
-    console.log(passedArray);
+    return passedArray;
 }
 filter90AndAbove(submissions);
 
