@@ -73,12 +73,14 @@ console.log(submissions);
 
 function findSubmissionByName(array, name){
     const aSubmission = array.find(submission => submission.name === name);
-    console.log(aSubmission);
+    //console.log(aSubmission);
+    return aSubmission;
 }
-findSubmissionByName(submissions, 'Jane');
+console.log(findSubmissionByName(submissions, 'Jane'));
 
 function findLowestScore(array){
-    let minScore = Infinity;
+    //let minScore = Infinity;
+    let minScore = array[0].score;
     let lowestScoreSubmission;
     array.forEach(element =>{
         if(element.score < minScore){
@@ -86,30 +88,35 @@ function findLowestScore(array){
             lowestScoreSubmission = element;
         }
     })
-    console.log(lowestScoreSubmission);
+    //console.log(lowestScoreSubmission);
+    return lowestScoreSubmission;
 
 }
-findLowestScore(submissions);
+console.log(findLowestScore(submissions));
 
 function findAverageScore(array){
     let totalScore = 0;
     for(let submission of submissions){
         totalScore += submission.score;
     }
-    console.log(totalScore/array.length);
+    //console.log(totalScore/array.length);
+    return totalScore/array.length;
 }
-findAverageScore(submissions);
+console.log(findAverageScore(submissions));
 
 function filterPassing(array){
-    let passedArray = array.filter(submission => submission.score >= 60);
-    console.log(passedArray);
+    //let passedArray = array.filter(submission => submission.score >= 60);
+    //console.log(passedArray);
+    let passedArray = array.filter(submission => submission.passed);
+    return passedArray;
 }
-filterPassing(submissions);
+console.log(filterPassing(submissions));
 
 function filter90AndAbove(array){
     let passedArray = array.filter(submission => submission.score >= 90);
-    console.log(passedArray);
+    //console.log(passedArray);
+    return passedArray;
 }
-filter90AndAbove(submissions);
+console.log(filter90AndAbove(submissions));
 
 
